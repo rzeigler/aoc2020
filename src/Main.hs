@@ -6,11 +6,12 @@ import Data.List (uncons)
 import Data.Text (Text)
 import qualified Data.Text.IO as TIO
 import Day1 (day1)
+import Day2 (day2)
 import Options.Applicative
 
 data Opts = Opts Int Int
 
-days = [day1]
+days = [day1, day2]
 
 main :: IO ()
 main = execParser optParser >>= run . lookupPart days

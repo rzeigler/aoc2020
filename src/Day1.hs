@@ -4,7 +4,7 @@ module Day1 (day1) where
 
 import Common (Input (..), liftInteract)
 import Data.Bifunctor (bimap)
-import Data.List (find)
+import Data.Maybe (listToMaybe)
 import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.Read as TR
@@ -13,17 +13,10 @@ day1 :: [Text -> Text]
 day1 = liftInteract <$> [part1, part2]
 
 part1 :: Day1 -> Maybe Int
-part1 (Day1 nums) = uncurry (*) <$> find needle haystack
-  where
-    haystack = [(a, b) | a <- nums, b <- nums]
-    needle (a, b) = a + b == 2020
+part1 (Day1 nums) = listToMaybe [a * b | a <- nums, b <- nums, a + b == 2020]
 
 part2 :: Day1 -> Maybe Int
-part2 (Day1 nums) = mult <$> find needle haystack
-  where
-    haystack = [(a, b, c) | a <- nums, b <- nums, c <- nums]
-    needle (a, b, c) = a + b + c == 2020
-    mult (a, b, c) = a * b * c
+part2 (Day1 nums) = listToMaybe [a * b * c | a <- nums, b <- nums, c <- nums, a + b + c == 2020]
 
 newtype Day1 = Day1 [Int]
 
