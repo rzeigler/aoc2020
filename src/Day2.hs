@@ -42,8 +42,8 @@ part2 (Record policy text) = xor (ch1 policy) (ch2 policy)
   where
     needle = ch policy
     -- -1 because we are 1 indexed
-    ch1 = (needle ==) . T.index text . fmap (-1 +) minCt
-    ch2 = (needle ==) . T.index text . fmap (-1 +) maxCt
+    ch1 = (needle ==) . T.index text . subtract 1 . minCt
+    ch2 = (needle ==) . T.index text . subtract 1 . maxCt
 
 xor :: Bool -> Bool -> Bool
 xor True False = True
