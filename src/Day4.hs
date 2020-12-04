@@ -34,7 +34,7 @@ fieldValue = T.pack <$> many1 (noneOf ['\n', ' '])
 
 field = (,) <$> fieldKey <* colon <*> fieldValue
 
-fields = sepBy1 field (space <|> (newline <* notFollowedBy newline))
+fields = sepBy field ((space <|> newline) <* notFollowedBy newline)
 
 records = Records <$> sepBy1 fields (newline *> newline)
 
