@@ -5,7 +5,6 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import Data.Vector ((!))
 import qualified Data.Vector as V
-import Debug.Trace
 
 day3 :: [Text -> Text]
 day3 = liftInteract <$> [part1]

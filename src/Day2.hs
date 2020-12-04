@@ -1,7 +1,6 @@
 module Day2 (day2) where
 
-import Common (Input (..), liftInteract)
-import Data.Bifunctor (first)
+import Common (Input (..), leftMapParseResult, liftInteract)
 import Data.Functor (void)
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -24,7 +23,7 @@ data Record = Record !Policy !Text
 newtype Day2 = Day2 [Record]
 
 instance Input Day2 where
-  fromInput = first (T.pack . show) . parse file ""
+  fromInput = leftMapParseResult . parse file ""
 
 unwrap :: Day2 -> [Record]
 unwrap (Day2 rs) = rs

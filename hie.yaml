@@ -2,3 +2,18 @@ cradle:
   cabal:
     - path: "src/Main.hs"
       component: "aoc2020:exe:aoc2020"
+
+    - path: "src/Common.hs"
+      component: "aoc2020:exe:aoc2020"
+
+    - path: "src/Day1.hs"
+      component: "aoc2020:exe:aoc2020"
+
+    - path: "src/Day2.hs"
+      component: "aoc2020:exe:aoc2020"
+
+    - path: "src/Day3.hs"
+      component: "aoc2020:exe:aoc2020"
+
+    - path: "src/Day4.hs"
+      component: "aoc2020:exe:aoc2020"
